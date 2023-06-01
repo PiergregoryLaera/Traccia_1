@@ -13,40 +13,38 @@
 </head>
     
 <body>
+  <form method="get" action="{{ route('googleAutocomplete') }}"class="d-flex my-3">
+      <input class="form-control me-2" type="search" name="name" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" id="comuneInput" type="submit">Search</button>
+    </form>
+    @csrf
     <div class="container mt-5">
         <h2>Il tuo comune</h2>
         <div id="map"></div>
     </div>
 
-    <form method="get" action="{{ route('googleAutocomplete') }}"class="d-flex my-3">
-      @csrf
-      <input class="form-control me-2" type="search" name="name" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-   
-  
     
+  
+    <script type="text/javascript">
+        function initMap() {
+          const myLatLng = { lat:  41.87194, lng: 12.56738 };
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 5,
+            center: myLatLng,
+          });
+  
+          new google.maps.Marker({
+            position: myLatLng,
+            map,
+            title: "Hello Rajkot!",
+          });
+        }
+  
+        window.initMap = initMap;
+    </script>
+  
+    <script type="text/javascript"
+        src="https://maps.google.com/maps/api/js?callback=initMap" ></script>
+  
 </body>
-
-<script type="text/javascript">
-  function initMap() {
-    const myLatLng = { lat: 22.2734719, lng: 70.7512559 };
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 5,
-      center: myLatLng,
-    });
-
-    new google.maps.Marker({
-      position: myLatLng,
-      map,
-      title: "Hello Rajkot!",
-    });
-  }
-
-  window.initMap = initMap;
-</script>
-
-<script type="text/javascript"
-  src="https://maps.google.com/maps/api/js?callback=initMap" ></script>
-
 </html>
