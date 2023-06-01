@@ -28,7 +28,7 @@ Route::post('/comuni/create', [ComuniController::class , 'store'])->name('comuni
 
 
 
-
+Route::get('google-autocomplete', [GoogleController::class, 'index'])->name('googleAutocomplete');
 
 // Route::get('/', [MapController::class, 'index']);
 
