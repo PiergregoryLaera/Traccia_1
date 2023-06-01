@@ -18,19 +18,16 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', [PublicController::class , 'home'])->name('home');
-
-Route::middleware(['auth'])->group(function(){
-
-
-Route::get('/comuni/create', [ComuniController::class , 'create'])->name('comuni.create');
-Route::post('/comuni/create', [ComuniController::class , 'store'])->name('comuni.store');
+Route::get('/', [PublicController::class, 'home'])->name('home');
+Route::post('/googlemap', [PublicController::class, 'viewCity'])->name('viewCity');
 
 
 
-Route::get('google-autocomplete', [GoogleController::class, 'index'])->name('googleAutocomplete');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/comuni/create', [ComuniController::class, 'create'])->name('comuni.create');
+    Route::post('/comuni/create', [ComuniController::class, 'store'])->name('comuni.store');
 
-// Route::get('/', [MapController::class, 'index']);
+    // Route::get('/', [MapController::class, 'index']);
+    Route::get('google-autocomplete', [GoogleController::class, 'index'])->name('googleAutocomplete');
 
 });
-

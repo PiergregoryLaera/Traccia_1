@@ -14,15 +14,8 @@ return new class extends Migration
         Schema::create('comunis', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->string('img');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id') 
-            ->references('id')
-            ->on('users');
-
-            // ho prima assegnato il vincolo alla colonna user_id,questa colonna
-            //  fa riferimento alla colonna con nome id nella tabella users
+            $table->float('lat' ,10,6);
+            $table->float('long',10,6);
 
             $table->timestamps();
         });

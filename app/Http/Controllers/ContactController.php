@@ -17,7 +17,7 @@ class ContactController extends Controller
 
         $contactMail = new ContactMail($name,$surname,$phone,$email);
 
-        Mail::to('progetto@stefano.com')->send($contactMail);
+        Mail::to('progetto@pier.com')->send($contactMail);
         
 
     }
