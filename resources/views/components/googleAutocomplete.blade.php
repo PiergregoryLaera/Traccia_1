@@ -26,7 +26,7 @@
 
     <script type="text/javascript">
         function initMap() {
-          const myLatLng = { lat:  41.87194, lng: 12.56738 ?? comuni };
+          const myLatLng = { lat:  41.87194, lng: 12.56738};
           const map = new google.maps.Map(document.getElementById("map"), {
             zoom: 5,
             center: myLatLng,
